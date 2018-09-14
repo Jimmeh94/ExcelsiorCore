@@ -43,4 +43,21 @@ public class PlayerBase {
     public Player getPlayer(){
         return Sponge.getServer().getPlayer(owner).get();
     }
+
+    public enum ParticleModifier{
+        LOW(0.25),
+        MEDIUM(.50),
+        NORMAL(1),
+        HIGH(1.5);
+
+        private double scale;
+
+        ParticleModifier(double scale) {
+            this.scale = scale;
+        }
+
+        public double getScale() {
+            return scale;
+        }
+    }
 }

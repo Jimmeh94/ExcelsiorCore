@@ -29,15 +29,12 @@ public class ExcelsiorCore {
 
     private Economy economy;
     private PartyManager partyManager;
-    private ServiceMongoDB mongoDB;
     private ChatChannelManager channelManager;
     private PlayerBaseManager playerBaseManager;
 
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
         INSTANCE = this;
-
-        mongoDB = new ServiceMongoDB("Admin", "admin", "@ds149742.mlab.com:49742/excelsior", "excelsior");
 
         economy = new Economy();
         partyManager = new PartyManager();
@@ -59,9 +56,5 @@ public class ExcelsiorCore {
 
     public PartyManager getPartyManager() {
         return partyManager;
-    }
-
-    public ServiceMongoDB getMongoDB() {
-        return mongoDB;
     }
 }
