@@ -3,6 +3,7 @@ package com.excelsiormc.excelsiorcore.services;
 import com.excelsiormc.excelsiorcore.event.custom.DayEvents;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.event.cause.Cause;
+import org.spongepowered.api.event.cause.EventContext;
 
 import java.text.DecimalFormat;
 
@@ -40,7 +41,7 @@ public class Calendar {
             }
             currentDayOfWeek = DayOfWeek.values()[totalDays];
         } else currentDayOfWeek = DayOfWeek.getNextDay(currentDayOfWeek);
-        Sponge.getEventManager().post(new DayEvents.DayBeginEvent(null, time));
+        Sponge.getEventManager().post(new DayEvents.DayBeginEvent(Cause.builder().build(EventContext.empty()), time));
     }
 
     public enum DayOfWeek{
