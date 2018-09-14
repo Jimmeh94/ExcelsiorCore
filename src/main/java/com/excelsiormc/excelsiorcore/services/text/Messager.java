@@ -79,7 +79,7 @@ public class Messager {
         INFO(Text.of(TextColors.GOLD, TextStyles.BOLD, "[!] ")),
         SUCCESS(Text.of(TextColors.GREEN, TextStyles.BOLD, "[" + AltCodes.CHECKMARK.getSign() + "] ")),
         ECO(Text.of(TextColors.GREEN, "[Eco] ")),
-        DUEAL(Text.of(TextColors.DARK_RED, "[Duel] ")),
+        DUEL(Text.of(TextColors.DARK_RED, "[Duel] ")),
         CHILD(null),
         ABILITY(Text.of(TextColors.AQUA, "[Ability] "));
 
