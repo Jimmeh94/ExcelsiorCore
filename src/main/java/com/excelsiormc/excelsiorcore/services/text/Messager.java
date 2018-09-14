@@ -67,6 +67,13 @@ public class Messager {
 
     }
 
+    public static void sendEconomyPayMessage(Player payer, Player receiver, Currency currency, double amount) {
+        sendMessage(payer, Text.of(TextColors.GREEN, "You paid " + receiver.getDisplayNameData().displayName().get().toPlain() +
+                " " + currency.getSymbol().toPlain() + amount), Prefix.ECO);
+        sendMessage(receiver, Text.of(TextColors.GREEN, payer.getDisplayNameData().displayName().get().toPlain() + " paid you " +
+                currency.getSymbol().toPlain() + amount), Prefix.ECO);
+    }
+
     public enum Prefix{
         ERROR(Text.of(TextColors.RED, TextStyles.BOLD, "[" + AltCodes.THICK_X.getSign() + "] ")),
         INFO(Text.of(TextColors.GOLD, TextStyles.BOLD, "[!] ")),

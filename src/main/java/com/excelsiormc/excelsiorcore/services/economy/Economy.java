@@ -1,5 +1,8 @@
 package com.excelsiormc.excelsiorcore.services.economy;
 
+import com.excelsiormc.excelsiorcore.services.text.Messager;
+import org.spongepowered.api.Sponge;
+
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -50,6 +53,32 @@ public class Economy {
             return getOrCreateAccount(uuid).get().getBalance(currency);
         }
         return 0;
+    }
+
+    public boolean withdraw(UUID uuid, Currency currency, double amount){
+        if(currencies.contains(currency)){
+            if(getOrCreateAccount(uuid).get().withdraw(currency, amount)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void deposit(UUID uuid, Currency currency, double amount){
+        if(currencies.contains(currency)){
+            getOrCreateAccount(uuid).get().deposit(currency, amount);
+        }
+    }
+
+    public void payPlayer(UUID payer, UUID receiver, Currency currency, double amount){
+        if(currencies.contains(currency)){
+            Account p = getOrCreateAccount(payer).get();
+            Account r = getOrCreateAccount(receiver).get();
+            if(p.withdraw(currency, amount)){
+                r.deposit(currency, amount);
+                Messager.sendEconomyPayMessage(Sponge.getServer().getPlayer(payer).get(), Sponge.getServer().getPlayer(receiver).get(), currency, amount);
+            }
+        }
     }
 
     public Optional<Account> getOrCreateAccount(UUID uuid){

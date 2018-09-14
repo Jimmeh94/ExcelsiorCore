@@ -1,6 +1,5 @@
 package com.excelsiormc.excelsiorcore.services.economy;
 
-import com.excelsiormc.excelsiorcore.services.errors.ErrorEconomyBalance;
 import com.excelsiormc.excelsiorcore.services.text.Message;
 import com.excelsiormc.excelsiorcore.services.text.Messager;
 import org.spongepowered.api.Sponge;
