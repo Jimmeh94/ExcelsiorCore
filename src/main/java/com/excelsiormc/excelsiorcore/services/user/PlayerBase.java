@@ -28,6 +28,10 @@ public class PlayerBase {
         return scoreboard;
     }
 
+    public UUID getOwner() {
+        return owner;
+    }
+
     public Account getAccount() {
         return account;
     }
