@@ -1,5 +1,6 @@
 package com.excelsiormc.excelsiorcore;
 
+import com.excelsiormc.excelsiorcore.event.ChatEvents;
 import com.excelsiormc.excelsiorcore.services.chat.ChatChannelManager;
 import com.excelsiormc.excelsiorcore.services.database.ServiceMongoDB;
 import com.excelsiormc.excelsiorcore.services.economy.Economy;
@@ -7,6 +8,7 @@ import com.excelsiormc.excelsiorcore.services.party.PartyManager;
 import com.excelsiormc.excelsiorcore.services.user.PlayerBaseManager;
 import com.google.inject.Inject;
 import org.slf4j.Logger;
+import org.spongepowered.api.Sponge;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
@@ -40,6 +42,23 @@ public class ExcelsiorCore {
         partyManager = new PartyManager();
         channelManager = new ChatChannelManager();
         playerBaseManager = new PlayerBaseManager();
+
+        registerListeners();
+        registerRunnables();
+        registerCommands();
+    }
+
+    private void registerCommands() {
+
+    }
+
+    private void registerRunnables() {
+
+    }
+
+    private void registerListeners() {
+        Sponge.getEventManager().registerListeners(this, new ChatEvents());
+
     }
 
     public PlayerBaseManager getPlayerBaseManager() {

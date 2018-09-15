@@ -2,6 +2,7 @@ package com.excelsiormc.excelsiorcore.services.user;
 
 import com.excelsiormc.excelsiorcore.services.chat.ChatPlayerProfile;
 import com.excelsiormc.excelsiorcore.services.economy.Account;
+import com.excelsiormc.excelsiorcore.services.inventory.Hotbar;
 import com.excelsiormc.excelsiorcore.services.scoreboard.Scoreboard;
 import com.excelsiormc.excelsiorcore.services.scoreboard.presets.ScoreboardPreset;
 import org.spongepowered.api.Sponge;
@@ -15,11 +16,20 @@ public class PlayerBase {
     private ChatPlayerProfile chatProfile;
     private Account account;
     private ParticleModifier particleModifier = ParticleModifier.NORMAL;
+    private Hotbar currentHotbar;
 
     public PlayerBase(UUID owner, ChatPlayerProfile chatProfile) {
         this.owner = owner;
         this.chatProfile = chatProfile;
         account = new Account(owner);
+    }
+
+    public void setCurrentHotbar(Hotbar currentHotbar) {
+        this.currentHotbar = currentHotbar;
+    }
+
+    public Hotbar getCurrentHotbar() {
+        return currentHotbar;
     }
 
     public void setParticleModifier(ParticleModifier particleModifier) {
