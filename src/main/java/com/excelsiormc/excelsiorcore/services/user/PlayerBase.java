@@ -14,7 +14,7 @@ public class PlayerBase {
     private UUID owner;
     private ChatPlayerProfile chatProfile;
     private Account account;
-    private Scoreboard scoreboard;
+    private ParticleModifier particleModifier = ParticleModifier.NORMAL;
 
     public PlayerBase(UUID owner, ChatPlayerProfile chatProfile) {
         this.owner = owner;
@@ -22,8 +22,12 @@ public class PlayerBase {
         account = new Account(owner);
     }
 
-    public Scoreboard getScoreboard() {
-        return scoreboard;
+    public void setParticleModifier(ParticleModifier particleModifier) {
+        this.particleModifier = particleModifier;
+    }
+
+    public ParticleModifier getParticleModifier() {
+        return particleModifier;
     }
 
     public UUID getOwner() {

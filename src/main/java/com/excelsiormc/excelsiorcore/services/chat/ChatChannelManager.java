@@ -51,5 +51,16 @@ public class ChatChannelManager extends Manager<ChatChannel> {
             Messager.sendMessage(Message.builder().addReceiver(base.getChatProfile().getPlayer()).addMessage(Text.of(TextColors.GRAY, "The channel doesn't exist or you are already in it: " + key), Messager.Prefix.ERROR).build());
         }
     }
+
+    public void removePlayerFromAllChannels(PlayerBase base){
+        if(GLOBAL.hasMember(base.getChatProfile())){
+            GLOBAL.removeMember(base.getChatProfile());
+        }
+        for(ChatChannel chatChannel: objects){
+            if(chatChannel.hasMember(base.getChatProfile())){
+                chatChannel.removeMember(base.getChatProfile());
+            }
+        }
+    }
     
 }
