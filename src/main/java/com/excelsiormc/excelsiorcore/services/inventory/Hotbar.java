@@ -36,6 +36,10 @@ public abstract class Hotbar {
         items.put(index, new Pair<>(item, callback));
     }
 
+    protected void addPair(int index, Pair<ItemStack, Callback> card){
+        items.put(index, card);
+    }
+
     public Map<Integer, Pair<ItemStack, Callback>> getItems() {
         return items;
     }

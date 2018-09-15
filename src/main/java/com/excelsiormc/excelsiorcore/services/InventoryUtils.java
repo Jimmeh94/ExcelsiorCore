@@ -9,6 +9,7 @@ import org.spongepowered.api.item.inventory.property.SlotPos;
 import org.spongepowered.api.item.inventory.query.QueryOperationTypes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Optional;
 
 public class InventoryUtils {
@@ -34,6 +35,20 @@ public class InventoryUtils {
     public static Optional<SlotIndex> getHeldItemSlot(final Player player, HandType hand){
         Optional<ItemStack> op = player.getItemInHand(hand);
         return op.isPresent() ? getSlotIndex(player.getItemInHand(hand).get(), player) : Optional.empty();
+    }
+
+    public static Optional<Slot> getSlot(int index, Player player){
+        Iterator slots = player.getInventory().slots().iterator();
+        while(slots.hasNext()){
+            Slot slot = (Slot) slots.next();
+            if(!slot.hasChildren()){
+                SlotIndex sl = (new ArrayList<>(slot.getProperties(SlotIndex.class)).get(0));
+                if(sl.getValue() == index){
+                    return Optional.of(slot);
+                }
+            }
+        }
+        return Optional.empty();
     }
 
 }
