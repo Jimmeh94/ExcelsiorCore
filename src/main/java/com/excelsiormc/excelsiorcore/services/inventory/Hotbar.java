@@ -2,6 +2,7 @@ package com.excelsiormc.excelsiorcore.services.inventory;
 
 import com.excelsiormc.excelsiorcore.ExcelsiorCore;
 import com.excelsiormc.excelsiorcore.services.Pair;
+import org.spongepowered.api.data.type.HandType;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
@@ -55,7 +56,7 @@ public abstract class Hotbar {
         ExcelsiorCore.INSTANCE.getPlayerBaseManager().getPlayerBase(player.getUniqueId()).get().setCurrentHotbar(this);
     }
 
-    public void handle(int index, Player player, HandClick handClick) {
+    public void handle(int index, Player player, HandType handClick) {
         if(items.get(index) != null && items.get(index).getSecond() != null){
             items.get(index).getSecond().action(player, handClick);
         }
@@ -63,12 +64,7 @@ public abstract class Hotbar {
 
     public interface Callback{
 
-        void action(Player player, HandClick action);
-    }
-
-    public enum HandClick{
-        LEFT_CLICK,
-        RIGHT_CLICK
+        void action(Player player, HandType action);
     }
 
 }
