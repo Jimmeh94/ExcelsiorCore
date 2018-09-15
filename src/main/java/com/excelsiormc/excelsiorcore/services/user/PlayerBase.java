@@ -16,12 +16,10 @@ public class PlayerBase {
     private Account account;
     private Scoreboard scoreboard;
 
-    public PlayerBase(UUID owner, ChatPlayerProfile chatProfile, ScoreboardPreset defaultPreset) {
+    public PlayerBase(UUID owner, ChatPlayerProfile chatProfile) {
         this.owner = owner;
         this.chatProfile = chatProfile;
         account = new Account(owner);
-
-        this.scoreboard = new Scoreboard(this, defaultPreset);
     }
 
     public Scoreboard getScoreboard() {
