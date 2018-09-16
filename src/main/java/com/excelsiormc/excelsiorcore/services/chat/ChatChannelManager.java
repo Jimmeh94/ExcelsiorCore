@@ -21,6 +21,7 @@ public class ChatChannelManager extends Manager<ChatChannel> {
 
     public ChatChannelManager() {
         profiles = new CopyOnWriteArrayList<>();
+        add(GLOBAL);
     }
 
 

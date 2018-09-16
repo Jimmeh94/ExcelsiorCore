@@ -22,8 +22,6 @@ public abstract class ChatChannel{
         this.key = key;
         this.permanent = p;
         this.prefix = prefix;
-
-        ExcelsiorCore.INSTANCE.getChannelManager().add(this);
     }
 
     public ChatChannel(String key, boolean p, Text prefix, PlayerBase owner) {
