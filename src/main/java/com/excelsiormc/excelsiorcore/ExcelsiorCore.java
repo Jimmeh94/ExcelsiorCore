@@ -14,14 +14,14 @@ import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.plugin.Plugin;
 
-/*@Plugin(
+@Plugin(
         id = "excelsiorcore",
         name = "ExcelsiorCore",
         description = "A Sponge based API with basic utilities.",
         authors = {
                 "Jimmy"
         }
-)*/
+)
 public class ExcelsiorCore {
 
     public static ExcelsiorCore INSTANCE;
