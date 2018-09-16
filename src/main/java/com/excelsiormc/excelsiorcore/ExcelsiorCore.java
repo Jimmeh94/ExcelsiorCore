@@ -39,9 +39,9 @@ public class ExcelsiorCore {
         channelManager = new ChatChannelManager();
         playerBaseManager = new PlayerBaseManager();
 
-        registerListeners();
-        registerRunnables();
-        registerCommands();
+        //registerListeners();
+        //registerRunnables();
+        //registerCommands();
     }
 
     private void registerCommands() {
