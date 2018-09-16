@@ -34,6 +34,19 @@ public class ExcelsiorCore {
     private ChatChannelManager channelManager;
     private PlayerBaseManager playerBaseManager;
 
+    public ExcelsiorCore() {
+        INSTANCE = this;
+
+        economy = new Economy();
+        partyManager = new PartyManager();
+        channelManager = new ChatChannelManager();
+        playerBaseManager = new PlayerBaseManager();
+
+        registerListeners();
+        registerRunnables();
+        registerCommands();
+    }
+
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
         INSTANCE = this;
