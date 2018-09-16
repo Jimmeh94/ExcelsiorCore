@@ -24,9 +24,6 @@ import org.spongepowered.api.plugin.Plugin;
 )
 public class ExcelsiorCore {
 
-    @Inject
-    private Logger logger;
-
     public static ExcelsiorCore INSTANCE;
 
     private Economy economy;
@@ -49,7 +46,7 @@ public class ExcelsiorCore {
 
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
-        INSTANCE = this;
+        /*INSTANCE = this;
 
         economy = new Economy();
         partyManager = new PartyManager();
@@ -58,7 +55,7 @@ public class ExcelsiorCore {
 
         registerListeners();
         registerRunnables();
-        registerCommands();
+        registerCommands();*/
     }
 
     private void registerCommands() {
