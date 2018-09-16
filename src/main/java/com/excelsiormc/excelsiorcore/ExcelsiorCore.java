@@ -35,7 +35,7 @@ public class ExcelsiorCore {
     private PlayerBaseManager playerBaseManager;
 
     public ExcelsiorCore() {
-        INSTANCE = this;
+        /*INSTANCE = this;
 
         economy = new Economy();
         partyManager = new PartyManager();
@@ -44,7 +44,7 @@ public class ExcelsiorCore {
 
         registerListeners();
         registerRunnables();
-        registerCommands();
+        registerCommands();*/
     }
 
     @Listener
